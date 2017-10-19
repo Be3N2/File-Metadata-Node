@@ -2,11 +2,10 @@
 // Already set up for express
 
 var express = require('express');
-var multer  = require('multer');
-var upload = multer();
-
 var app = express();
 
+var multer  = require('multer');
+var upload = multer();
 
 app.use(express.static('public'));
 
@@ -20,8 +19,8 @@ var listener = app.listen(process.env.PORT, function () {
 });
 
 app.post('/file-upload', upload.single('fileUpload'), function (request, response, next) {
-  // req.file is the `avatar` file 
-  console.log(request.fileUpload);
-  response.send("running");
+  console.log(request.file.size);
+  var sizeObj = {"name": request.file.originalname, "size": request.file.size};
+  response.send(sizeObj);
   // req.body will hold the text fields, if there were any 
-})
+});
