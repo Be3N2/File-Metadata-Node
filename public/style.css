@@ -1,0 +1,10 @@
+
+body {
+  background-color: lightgrey;
+  text-align: center;
+}
+
+main {
+  margin: 0 auto;
+  max-width:800px;
+}
