@@ -23,7 +23,8 @@
         Upload a file to get its file size. 
       </h3>
       
-      <form method="post"  action="/file-upload">
+      <!-- Multer will not accept it without enctype being set -->
+      <form method="post" enctype="multipart/form-data" action="/file-upload">
         <input type="file" name="fileUpload"/>
         <input type="submit"/>
       </form>
